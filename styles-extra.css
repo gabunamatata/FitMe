@@ -1,0 +1,9 @@
+.workout-builder { margin-top: 14px; }
+.workout-builder h2 { font: 24px Georgia, serif; }
+.template-list { margin-top: 20px; border-top: 1px solid var(--line); }
+.template-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 2px; border-bottom: 1px solid var(--line); }
+.template-item div { min-width: 0; }
+.template-item b { display: block; font-size: 14px; }
+.template-item span { font-size: 11px; color: var(--muted); }
+.template-item button { border: 0; background: #faece7; color: #9a4f45; border-radius: 9px; padding: 8px 10px; font-weight: 800; }
+.meal-type-badge { display: inline-block; font-size: 9px; letter-spacing: 1px; font-weight: 800; color: var(--green); background: #edf0e2; padding: 4px 7px; border-radius: 8px; margin-bottom: 6px; }

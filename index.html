@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Моят ритъм">
+  <title>Моят ритъм</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-extra.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><span class="eyebrow">МОЯТ РИТЪМ</span><h1 id="page-title">Днес</h1></div>
+    <button class="avatar" id="reset-btn" aria-label="Настройки">Г</button>
+  </header>
+
+  <main>
+    <section class="view active" id="today-view">
+      <div class="date-line" id="today-date"></div>
+      <article class="hero-card">
+        <div><span class="pill">СЕДМИЦА <b id="cycle-week">1</b> / 8</span><h2>Движи се с намерение.</h2><p id="today-summary">Готова си за следващата тренировка.</p></div>
+        <div class="progress-ring" id="day-ring"><span>0%</span></div>
+      </article>
+
+      <div class="section-title"><h2>Днешният план</h2><button data-go="calendar">Календар</button></div>
+      <article class="workout-card" id="today-workout"></article>
+
+      <div class="section-title"><h2>Хранене</h2><button data-go="food">Добави</button></div>
+      <article class="macro-card">
+        <div class="calorie-row"><div><small>КАЛОРИИ</small><strong><span id="calories-now">0</span> <em>/ 2000 kcal</em></strong></div><span id="calorie-percent">0%</span></div>
+        <div class="bar"><i id="calorie-bar"></i></div>
+        <div class="macro-grid">
+          <div><span class="dot protein"></span><small>Протеин</small><b id="protein-now">0 g</b></div>
+          <div><span class="dot carbs"></span><small>Въглехидрати</small><b id="carbs-now">0 g</b></div>
+          <div><span class="dot fats"></span><small>Мазнини</small><b id="fats-now">0 g</b></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="view" id="calendar-view">
+      <div class="month-nav"><button id="prev-month">‹</button><h2 id="month-label"></h2><button id="next-month">›</button></div>
+      <div class="weekdays"><span>П</span><span>В</span><span>С</span><span>Ч</span><span>П</span><span>С</span><span>Н</span></div>
+      <div class="calendar" id="calendar-grid"></div>
+      <article class="panel selected-day-panel">
+        <small>ИЗБРАН ДЕН</small><h2 id="selected-date"></h2>
+        <label>Планирана тренировка<select id="workout-select"></select></label>
+        <button class="primary" id="save-plan">Запази в календара</button>
+      </article>
+      <article class="panel workout-builder">
+        <small>МОИТЕ ТРЕНИРОВКИ</small><h2>Създай тренировка</h2>
+        <label>Име<input id="new-workout-name" placeholder="Напр. Крака и седалище"></label>
+        <label>Упражнения — по едно на ред<textarea id="new-workout-exercises" rows="5" placeholder="Hip Thrust&#10;Български клек&#10;Румънска тяга"></textarea></label>
+        <label>Начален брой серии<input id="new-workout-sets" type="number" inputmode="numeric" min="1" max="10" value="3"></label>
+        <button class="primary" id="create-workout">Създай тренировка</button>
+        <div class="template-list" id="template-list"></div>
+      </article>
+    </section>
+
+    <section class="view" id="workout-view">
+      <div class="section-title"><div><small>ТРЕНИРОВЪЧЕН ДНЕВНИК</small><h2 id="active-workout-title">Тренировка</h2></div><button id="add-exercise">+ Упражнение</button></div>
+      <div id="exercise-list"></div>
+      <button class="primary sticky-action" id="finish-workout">Завърши тренировката</button>
+    </section>
+
+    <section class="view" id="food-view">
+      <article class="panel food-entry">
+        <small>БЪРЗО ДОБАВЯНЕ</small><h2>Опиши какво хапна</h2>
+        <label>Хранене<select id="meal-type"><option>Закуска</option><option>Обяд</option><option>Вечеря</option><option>Междинно хранене</option></select></label>
+        <p>Например: „200 г пилешко, 150 г сварен ориз и салата“</p>
+        <textarea id="food-description" rows="4" placeholder="Напиши храната и количествата…"></textarea>
+        <button class="primary" id="analyze-food">Изчисли ориентировъчно</button>
+      </article>
+      <article class="panel hidden" id="food-result">
+        <div class="section-title"><h2>Предложение</h2><span class="estimate">ОЦЕНКА</span></div>
+        <div class="nutrition-result">
+          <label>Калории<input id="result-calories" type="number"></label>
+          <label>Протеин (g)<input id="result-protein" type="number"></label>
+          <label>Въглехидрати (g)<input id="result-carbs" type="number"></label>
+          <label>Мазнини (g)<input id="result-fats" type="number"></label>
+        </div>
+        <p class="hint">Стойностите са приблизителни. Провери и коригирай при нужда.</p>
+        <button class="primary" id="save-food">Добави към деня</button>
+      </article>
+      <div class="section-title"><h2>Днешни хранения</h2></div><div id="meal-list"></div>
+    </section>
+
+    <section class="view" id="stats-view">
+      <article class="hero-card compact"><div><span class="pill">ПОСЛЕДНИ 8 СЕДМИЦИ</span><h2>Твоят прогрес</h2><p>Постоянството е истинският личен рекорд.</p></div></article>
+      <div class="stat-grid">
+        <article><small>ТРЕНИРОВКИ</small><strong id="stat-workouts">0</strong></article>
+        <article><small>ОБЩ ОБЕМ</small><strong id="stat-volume">0 kg</strong></article>
+        <article><small>ХРАНЕНИЯ</small><strong id="stat-meals">0</strong></article>
+        <article><small>СЕРИИ</small><strong id="stat-sets">0</strong></article>
+      </div>
+      <article class="panel"><div class="section-title"><h2>Тренировъчен обем</h2><span>по тренировки</span></div><div class="chart" id="volume-chart"></div></article>
+      <article class="panel cycle-panel"><small>СМЯНА НА ПРОГРАМАТА</small><h2 id="cycle-message">Остават 7 седмици</h2><p>В края на осмата седмица ще предложим смяна на упражненията.</p><button class="secondary" id="restart-cycle">Започни нов 8-седмичен цикъл</button></article>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" data-view="today"><span>⌂</span>Днес</button>
+    <button data-view="calendar"><span>▦</span>Календар</button>
+    <button class="workout-nav" data-view="workout"><span>＋</span>Тренировка</button>
+    <button data-view="food"><span>◇</span>Храна</button>
+    <button data-view="stats"><span>↗</span>Прогрес</button>
+  </nav>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
