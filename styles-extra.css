@@ -18,3 +18,18 @@
 .template-actions { display: flex; gap: 7px; }
 .template-item .edit-template { background: #edf0e2; color: var(--green); }
 .cancel-workout-edit { margin-top: 9px; }
+.scan-trigger { margin: 10px 0 16px; }
+.scanner-box { background: #101916; border-radius: 18px; padding: 12px; margin: 10px 0 16px; color: white; }
+.scanner-head { display: flex; justify-content: space-between; align-items: center; padding: 3px 3px 10px; font-size: 13px; }
+.scanner-head button { border: 0; background: rgba(255,255,255,.14); color: white; width: 30px; height: 30px; border-radius: 50%; font-size: 20px; }
+#barcode-video { width: 100%; min-height: 210px; max-height: 320px; object-fit: cover; border-radius: 12px; background: #000; }
+.scanner-status { color: #d7e2de !important; text-align: center; margin: 10px 0 !important; }
+.manual-barcode { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.manual-barcode input { margin: 0; }
+.manual-barcode button { border: 0; border-radius: 12px; padding: 0 15px; background: var(--lime); color: var(--green); font-weight: 800; }
+.barcode-product { grid-template-columns: 76px 1fr; gap: 14px; align-items: center; padding: 12px; background: #f4f5ed; border-radius: 15px; margin-bottom: 8px; }
+.barcode-product:not(.hidden) { display: grid; }
+.barcode-product img { width: 76px; height: 76px; object-fit: contain; border-radius: 10px; background: white; }
+.barcode-product b { display: block; margin: 5px 0; }
+.barcode-product label { margin: 6px 0 0; }
+.barcode-product input { padding: 8px; }

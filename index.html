@@ -10,7 +10,8 @@
   <title>Моят ритъм</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="styles-extra.css?v=5">
+  <link rel="stylesheet" href="styles-extra.css?v=6">
+  <script defer src="https://unpkg.com/@zxing/browser@0.1.5/umd/zxing-browser.min.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -73,12 +74,20 @@
       <article class="panel food-entry">
         <small>БЪРЗО ДОБАВЯНЕ</small><h2>Опиши какво хапна</h2>
         <label>Хранене<select id="meal-type"><option>Закуска</option><option>Обяд</option><option>Вечеря</option><option>Междинно хранене</option></select></label>
+        <button class="secondary scan-trigger" id="open-scanner">▣ Сканирай баркод</button>
+        <div class="scanner-box hidden" id="scanner-box">
+          <div class="scanner-head"><b>Насочи камерата към баркода</b><button id="close-scanner" aria-label="Затвори скенера">×</button></div>
+          <video id="barcode-video" playsinline muted></video>
+          <p class="scanner-status" id="scanner-status">Подготвяне на камерата…</p>
+          <div class="manual-barcode"><input id="barcode-input" inputmode="numeric" placeholder="Или въведи цифрите под кода"><button id="lookup-barcode">Търси</button></div>
+        </div>
         <p>Например: „200 г пилешко, 150 г сварен ориз и салата“</p>
         <textarea id="food-description" rows="4" placeholder="Напиши храната и количествата…"></textarea>
         <button class="primary" id="analyze-food">Изчисли ориентировъчно</button>
       </article>
       <article class="panel hidden" id="food-result">
         <div class="section-title"><h2>Предложение</h2><span class="estimate">ОЦЕНКА</span></div>
+        <div class="barcode-product hidden" id="barcode-product"><img id="barcode-product-image" alt=""><div><small>СКАНИРАН ПРОДУКТ</small><b id="barcode-product-name"></b><label>Изядено количество (g)<input id="barcode-amount" type="number" inputmode="decimal" min="1" value="100"></label></div></div>
         <div class="nutrition-result">
           <label>Калории<input id="result-calories" type="number"></label>
           <label>Протеин (g)<input id="result-protein" type="number"></label>
@@ -112,6 +121,6 @@
     <button data-view="stats"><span>↗</span>Прогрес</button>
   </nav>
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
