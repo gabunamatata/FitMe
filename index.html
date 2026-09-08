@@ -49,19 +49,22 @@
         <small>ИЗБРАН ДЕН</small><h2 id="selected-date"></h2>
         <label>Планирана тренировка<select id="workout-select"></select></label>
         <button class="primary" id="save-plan">Запази в календара</button>
+        <button class="secondary calendar-open-workout" id="open-day-workout">Отвори тренировката</button>
       </article>
+      <div id="selected-day-history"></div>
       <article class="panel workout-builder">
         <small>МОИТЕ ТРЕНИРОВКИ</small><h2>Създай тренировка</h2>
         <label>Име<input id="new-workout-name" placeholder="Напр. Крака и седалище"></label>
-        <label>Упражнения — по едно на ред<textarea id="new-workout-exercises" rows="5" placeholder="Hip Thrust&#10;Български клек&#10;Румънска тяга"></textarea></label>
-        <label>Начален брой серии<input id="new-workout-sets" type="number" inputmode="numeric" min="1" max="10" value="3"></label>
+        <label>Упражнения — по едно на ред, след | може да зададеш серии<textarea id="new-workout-exercises" rows="5" placeholder="Hip Thrust | 4&#10;Български клек | 3&#10;Румънска тяга | 3"></textarea></label>
+        <label>Серии по подразбиране<input id="new-workout-sets" type="number" inputmode="numeric" min="1" max="10" value="3"></label>
         <button class="primary" id="create-workout">Създай тренировка</button>
+        <button class="secondary hidden cancel-workout-edit" id="cancel-workout-edit">Откажи редактирането</button>
         <div class="template-list" id="template-list"></div>
       </article>
     </section>
 
     <section class="view" id="workout-view">
-      <div class="section-title"><div><small>ТРЕНИРОВЪЧЕН ДНЕВНИК</small><h2 id="active-workout-title">Тренировка</h2></div><button id="add-exercise">+ Упражнение</button></div>
+      <div class="section-title"><div><small id="active-workout-date">ТРЕНИРОВЪЧЕН ДНЕВНИК</small><h2 id="active-workout-title">Тренировка</h2></div><button id="add-exercise">+ Упражнение</button></div>
       <div id="exercise-list"></div>
       <button class="primary sticky-action" id="finish-workout">Завърши тренировката</button>
     </section>

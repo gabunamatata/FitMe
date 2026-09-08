@@ -7,3 +7,14 @@
 .template-item span { font-size: 11px; color: var(--muted); }
 .template-item button { border: 0; background: #faece7; color: #9a4f45; border-radius: 9px; padding: 8px 10px; font-weight: 800; }
 .meal-type-badge { display: inline-block; font-size: 9px; letter-spacing: 1px; font-weight: 800; color: var(--green); background: #edf0e2; padding: 4px 7px; border-radius: 8px; margin-bottom: 6px; }
+.calendar-open-workout { margin-top: 10px; }
+.today-workout-select { margin: 4px 0 14px; }
+.saved-note { display: inline-block; margin-bottom: 8px; color: var(--green); font-size: 11px; font-weight: 800; }
+.day.completed:before { content: "✓"; position: absolute; top: 1px; right: 3px; font-size: 9px; color: var(--green); font-weight: 900; }
+.day.completed.selected:before { color: var(--lime); }
+.history-card { margin-top: 14px; }
+.history-card h3 { font: 20px Georgia, serif; margin: 6px 0; }
+.history-card p { color: var(--muted); font-size: 12px; margin: 5px 0 14px; }
+.template-actions { display: flex; gap: 7px; }
+.template-item .edit-template { background: #edf0e2; color: var(--green); }
+.cancel-workout-edit { margin-top: 9px; }
