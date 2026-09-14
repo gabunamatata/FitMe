@@ -33,3 +33,28 @@
 .barcode-product b { display: block; margin: 5px 0; }
 .barcode-product label { margin: 6px 0 0; }
 .barcode-product input { padding: 8px; }
+.history-toggle { margin: 4px 0 14px; }
+.workout-history { scroll-margin-top: 100px; margin-bottom: 16px; }
+.workout-history > .section-title { align-items: center; }
+.workout-history > .section-title h2 { margin-bottom: 0; }
+.history-filter { margin-top: 0; }
+.history-session { margin-bottom: 12px; padding: 16px; }
+.history-session-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; margin-bottom: 14px; }
+.history-session-head h3 { font: 21px Georgia, serif; margin: 5px 0 0; }
+.history-totals { text-align: right; flex: 0 0 auto; }
+.history-totals b,.history-totals span { display: block; }
+.history-totals b { color: var(--green); font-size: 14px; }
+.history-totals span { color: var(--muted); font-size: 10px; margin-top: 3px; }
+.history-table-wrap { overflow-x: auto; margin: 0 -4px 14px; border: 1px solid var(--line); border-radius: 13px; }
+.history-table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 11px; background: #fbfbf8; }
+.history-table th,.history-table td { border-bottom: 1px solid var(--line); padding: 10px; text-align: left; vertical-align: top; }
+.history-table thead th { color: var(--green); background: #e9efcf; font-size: 9px; letter-spacing: .7px; text-transform: uppercase; }
+.history-table tbody th { width: 25%; font-size: 12px; }
+.history-table tbody tr:last-child th,.history-table tbody tr:last-child td { border-bottom: 0; }
+.history-table td:last-child { width: 20%; background: #f4e4ed; }
+.history-table td:last-child b,.history-table td:last-child small { display: block; }
+.history-table td:last-child small { letter-spacing: 0; margin-top: 4px; }
+.history-sets { display: flex; flex-wrap: wrap; gap: 5px; }
+.history-sets span { background: #dff3dc; border-radius: 7px; padding: 6px 7px; white-space: nowrap; }
+.history-sets i { display: inline-grid; place-items: center; width: 17px; height: 17px; margin-right: 4px; background: var(--green); color: white; border-radius: 50%; font-style: normal; font-size: 8px; }
+@media(max-width:480px){.history-session{padding:14px 12px}.history-session-head h3{font-size:18px}.history-table-wrap{margin-left:0;margin-right:0}}

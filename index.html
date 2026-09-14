@@ -10,7 +10,7 @@
   <title>Моят ритъм</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="styles-extra.css?v=6">
+  <link rel="stylesheet" href="styles-extra.css?v=7">
   <script defer src="https://unpkg.com/@zxing/browser@0.1.5/umd/zxing-browser.min.js"></script>
 </head>
 <body>
@@ -108,6 +108,12 @@
         <article><small>ХРАНЕНИЯ</small><strong id="stat-meals">0</strong></article>
         <article><small>СЕРИИ</small><strong id="stat-sets">0</strong></article>
       </div>
+      <button class="primary history-toggle" id="toggle-workout-history" aria-expanded="false">История на тренировките</button>
+      <section class="workout-history hidden" id="workout-history" aria-label="История на тренировките">
+        <div class="section-title"><div><small>ТРЕНИРОВЪЧЕН ДНЕВНИК</small><h2>История на тренировките</h2></div><button id="close-workout-history">Затвори</button></div>
+        <label class="history-filter">Тренировка<select id="history-template-filter"><option value="all">Всички тренировки</option></select></label>
+        <div id="workout-history-list"></div>
+      </section>
       <article class="panel"><div class="section-title"><h2>Тренировъчен обем</h2><span>по тренировки</span></div><div class="chart" id="volume-chart"></div></article>
       <article class="panel cycle-panel"><small>СМЯНА НА ПРОГРАМАТА</small><h2 id="cycle-message">Остават 7 седмици</h2><p>В края на осмата седмица ще предложим смяна на упражненията.</p><button class="secondary" id="restart-cycle">Започни нов 8-седмичен цикъл</button></article>
     </section>
@@ -121,6 +127,6 @@
     <button data-view="stats"><span>↗</span>Прогрес</button>
   </nav>
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
