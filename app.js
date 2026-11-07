@@ -16,11 +16,11 @@ $$('[data-view]').forEach(b=>b.onclick=()=>{const view=b.dataset.view;if(view===
 function renderLegend(){$('#color-legend').innerHTML=state.templates.slice(0,4).map(t=>`<span class="legend-item"><i class="legend-dot" style="background:${templateColor(t.id)}"></i>${esc(t.name)}</span>`).join('')}
 function renderCalendar(){renderLegend();const y=calendarDate.getFullYear(),m=calendarDate.getMonth();$('#month-label').textContent=new Intl.DateTimeFormat('en-GB',{month:'long',year:'numeric'}).format(calendarDate);const first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate(),prev=new Date(y,m,0).getDate();let html='';for(let i=0;i<42;i++){let n,date,muted=false;if(i<first){n=prev-first+i+1;date=iso(new Date(y,m-1,n));muted=true}else if(i>=first+days){n=i-first-days+1;date=iso(new Date(y,m+1,n));muted=true}else{n=i-first+1;date=iso(new Date(y,m,n))}const done=sessionForDate(date),color=done?templateColor(done.templateId):'';html+=`<button class="day ${muted?'muted ':''}${date===today?'today ':''}${date===selectedDate?'selected ':''}${Object.hasOwn(state.plans,date)?'planned ':''}${done?'completed':''}" ${color?`style="background:${color}"`:''} data-date="${date}">${n}</button>`}$('#calendar-grid').innerHTML=html;$$('.day').forEach(b=>b.onclick=()=>{selectedDate=b.dataset.date;renderCalendarDay()});renderCalendarDay();renderUpcoming()}
 function renderUpcoming(){
- const entries=Object.entries(state.plans).filter(([date])=>date>today&&!sessionForDate(date)).sort(([a],[b])=>a.localeCompare(b));
+ const entries=Object.entries(state.plans).filter(([date])=>date>=today&&!sessionForDate(date)).sort(([a],[b])=>a.localeCompare(b));
  $('#upcoming-list').innerHTML=entries.length?entries.map(([date,id])=>{
   const name=id?state.templates.find(t=>t.id===id)?.name||'Workout':'Rest day';
   return `<li><button class="secondary" data-upcoming-date="${esc(date)}">${longDate(date)} · ${esc(name)}</button></li>`;
- }).join(''):'<li>No future workouts or rest days planned yet.</li>';
+ }).join(''):'<li>No upcoming workouts or rest days planned yet.</li>';
  $$('[data-upcoming-date]').forEach(button=>button.onclick=()=>{
   selectedDate=button.dataset.upcomingDate;
   calendarDate=new Date(selectedDate+'T12:00:00');
