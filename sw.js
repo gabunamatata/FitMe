@@ -1,5 +1,5 @@
-const CACHE='fitflow-v9';
-const FILES=['./','index.html','styles.css?v=9','app.js?v=9','manifest.webmanifest'];
+const CACHE='fitflow-v10';
+const FILES=['./','index.html','styles.css?v=10','app.js?v=10','manifest.webmanifest'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
